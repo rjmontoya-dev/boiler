@@ -49,7 +49,25 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard Test feature
+                                    Dashboard
+                                </NavLink>
+                            </div>
+                              <!-- Navigation Links -->
+                              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('/admin/article')" :active="route().current('articles')">
+                                    Articles
+                                </NavLink>
+                            </div>
+                              <!-- Navigation Links -->
+                              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('dashboard')" :active="route().current('article-category')">
+                                Article Category
+                                </NavLink>
+                            </div>
+                              <!-- Navigation Links -->
+                              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('dashboard')" :active="route().current('cms-page')">
+                                    CMS Page
                                 </NavLink>
                             </div>
                         </div>
