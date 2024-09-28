@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Admin\Article;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Article\ArticleRequest;
+use App\Http\Resources\Admin\Article\EditFormat;
+use App\Http\Resources\Admin\Article\IndexFormat;
 use App\Models\Admin\Article\Article;
 use App\Services\Admin\Article\ArticleService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Inertia\Response;
 use Boiler\Http\Controller\CrudController;
 use Boiler\Objects\CrudResources;
 use Boiler\Services\CrudService;
-
+use Illuminate\Foundation\Http\FormRequest;
 
 class ArticleController extends CrudController
 {
@@ -53,13 +54,38 @@ class ArticleController extends CrudController
     protected function formatter(): CrudResources
     {
         return new CrudResources([
-
+                'index' => IndexFormat::class,
+                'show' => EditFormat::class,
         ]);
     }
 
     public function index(Request $request) : Response
     {
-        dd("hey");
         return parent::baseIndex($request);
+    }
+
+    public function create(Request $request, array $props = [])
+    {
+        return parent::baseCreate($request, []);
+}
+
+    public function edit(Request $request, Article $article)
+    {
+        return parent::baseEdit($request, $article);
+    }
+
+    public function store(ArticleRequest $request)
+    {
+        return parent::baseStore($request);
+    }
+
+    public function archive(Article $article)
+    {
+        return parent::baseArchive($article);
+    }
+
+    public function restore(Article $article)
+    {
+        return parent::baseRestore($article);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models\System;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Models\Activity as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Activity extends Model

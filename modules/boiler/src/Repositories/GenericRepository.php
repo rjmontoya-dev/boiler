@@ -2,11 +2,20 @@
 
 namespace Boiler\Repositories;
 
+use Boiler\Traits\Repositories\WithFilter;
+use Boiler\Traits\Repositories\WithFilterTab;
+use Boiler\Traits\Repositories\WithPagination;
+use Boiler\Traits\Repositories\WithSort;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class GenericRepository
 {
+    use WithFilter;
+    use WithFilterTab;
+    use WithPagination;
+    use WithSort;
+
     /**
      * Create a new repository instance.
      *
