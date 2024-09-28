@@ -14,7 +14,7 @@ trait HasRepository
     /**
      * The repository instance.
      *
-     * @var \Praxis\Repositories\GenericRepository
+     * @var  GenericRepository
      */
     protected GenericRepository $repository;
 

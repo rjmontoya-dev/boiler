@@ -30,7 +30,6 @@ const logout = () => {
 <template>
     <div>
         <Head :title="title" />
-
         <Banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -54,20 +53,20 @@ const logout = () => {
                             </div>
                               <!-- Navigation Links -->
                               <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('admin.article.index')" :active="route().current('articles')">
+                                <NavLink :href="route('admin.article.index')" :active="route().current('admin.article.*')">
                                     Articles
                                 </NavLink>
                             </div>
-                              <!-- Navigation Links -->
-                              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('article-category')">
-                                Article Category
-                                </NavLink>
-                            </div>
-                              <!-- Navigation Links -->
-                              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <!-- Navigation Links -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('cms-page')">
                                     CMS Page
+                                </NavLink>
+                            </div>
+                             <!-- Navigation Links -->
+                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('dashboard')" :active="route().current('article-category')">
+                                    Roles & Permission
                                 </NavLink>
                             </div>
                         </div>

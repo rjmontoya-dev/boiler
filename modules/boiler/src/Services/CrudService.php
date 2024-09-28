@@ -2,6 +2,7 @@
 
 namespace Boiler\Services;
 
+use App\Models\Admin\Article\Article;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
