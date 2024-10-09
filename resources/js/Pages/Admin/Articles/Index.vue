@@ -118,23 +118,12 @@
     </AppLayout>
 </template>
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from "@inertiajs/vue3";
-import { PencilSquareIcon, TrashIcon, ArrowPathIcon } from '@heroicons/vue/24/outline'
 import {ref, computed} from 'vue';
 import { usePage } from '@inertiajs/vue3';
 import BaseIndexProps from '../../../Contracts/Admin/BaseIndexProps';
-import NavTabs from '../../../Components/NavTabs.vue';
-import ActivityLogs from '../../../Components/ActivityLogs.vue';
-import TableContainer from '../../../Components/Containers/TableContainer.vue';
-import DataTable from '../../../Components/DataTable.vue';
-import Paginator from '../../../Components/Partials/Paginator.vue';
-import FlashMessages from '../../../Components/Modals/FlashMessages.vue';
 import { router } from "@inertiajs/vue3";
 import { route } from '../../../../../vendor/tightenco/ziggy/src/js';
-import EditButton from '../../../Components/ActionButtons/EditButton.vue';
-import DeleteButton from '../../../Components/ActionButtons/DeleteButton.vue';
-import RestoreButton from '../../../Components/ActionButtons/RestoreButton.vue';
 
 const baseProps = computed(() => usePage().props);
 

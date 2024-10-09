@@ -27,6 +27,7 @@
         "@heroicons/vue": "^2.1.5",
         "@inertiajs/core": "^1.2.0",
         "lodash": "^4.17.21",
-        "lodash.debounce": "^4.0.8"
+        "lodash.debounce": "^4.0.8",
+        "vue3-dropzone": "^2.2.1"
     }
 }

@@ -33,53 +33,34 @@
                 </ol>
             </nav>
             </div>
-
             <!-- Form -->
-            <div class="max-w-lg mx-auto">
-              <form  @submit.prevent="submit">
-                <div class="shadow sm:rounded-md sm:overflow-hidden">
-                  <div class="bg-white py-6 px-4 sm:p-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Customer Information</h3>
-
-                    <div class="grid grid-cols-6 gap-6">
-                      <div class="col-span-6 sm:col-span-3">
-                        <label for="title" class="block text-sm font-medium text-gray-700">Title  *</label>
-                        <input v-model="form.title" type="text" name="title" id="title" autocomplete="tel" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-span-full">
-                    <CKEditor v-model="form.content" />
-                </div>
-                  <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button  type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-black   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                      Submit
-                    </button>
-                    <button type="button" class="inline-flex justify-center py-2 px-4 ml-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
+            <form-section
+                :form="form"
+            >
+                <action-button @click="submit()">
+                    Submit
+                </action-button>
+                <cancel-button
+                    :route-link="route('admin.article.index')"
+                />
+            </form-section>
           </div>
         </div>
       </div>
     </AppLayout>
   </template>
   <script lang='ts' setup>
-  import AppLayout from '@/Layouts/AppLayout.vue';
   import {ref } from 'vue';
-  import CKEditor from '@/Components/Input/CKEditor.vue';
 import submitForm from '../../../Helpers/submitForm';
 import { Form } from '../../../Interface/Data/Form';
 import { useForm, usePage } from '@inertiajs/vue3';
-
+import FormSection from './FormSection.vue';
 
 const { form, submit } = submitForm(
     {
         title: '',
         content: '',
+        image:'',
     } as Form,
     route("admin.article.store")
 );

@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Admin\Article;
 
+use App\Constants\SystemConfigs;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 
 class ArticleRequest extends FormRequest
 {
@@ -23,7 +26,8 @@ class ArticleRequest extends FormRequest
     {
         return [
            'title' => ['required'],
-           'content' => ['required']
+           'content' => ['required'],
+        'image' => ['nullable','sometimes', Rule::requiredIf(is_null($this->route('article')))],
         ];
     }
 }

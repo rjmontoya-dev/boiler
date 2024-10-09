@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\System\UploadedFile;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('uploaded_files', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('content');
-            $table->foreignIdFor(UploadedFile::class,'image_id')->index();
-            $table->softDeletes();
+            $table->string('name');
+            $table->bigInteger('size')->unsigned()->comment('In bytes');
+            $table->string('mime');
+            $table->string('extension');
+            $table->string('file_path');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('uploaded_files');
     }
 };

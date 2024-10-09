@@ -7,6 +7,7 @@ use App\Http\Resources\Admin\Article\EditFormat;
 use App\Http\Resources\Admin\Article\IndexFormat;
 use App\Models\Admin\Article\Article;
 use App\Services\Admin\Article\ArticleService;
+use App\Services\Global\System\FileUploadService;
 use Illuminate\Http\Request;
 use Inertia\Response;
 use Boiler\Http\Controller\CrudController;
@@ -75,6 +76,11 @@ class ArticleController extends CrudController
     }
 
     public function store(ArticleRequest $request)
+    {
+        return parent::baseStore($request);
+    }
+
+    public function update(ArticleRequest $request)
     {
         return parent::baseStore($request);
     }
